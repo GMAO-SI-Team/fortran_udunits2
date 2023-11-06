@@ -33,6 +33,10 @@ target_link_libraries(
   Fortran_UDUNITS2
   udunits::udunits EXPAT::EXPAT
 )
+# We also need to link to dl if CMAKE_DL_LIBS is set
+if (CMAKE_DL_LIBS)
+  target_link_libraries(Fortran_UDUNITS2 ${CMAKE_DL_LIBS})
+endif ()
 
 # Install the library
 install(
