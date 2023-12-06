@@ -15,7 +15,6 @@ find_package(EXPAT REQUIRED)
 # Add source files
 set (SOURCES
   "source/f_udunits_2.F90"
-  "source/f_udunits_2.inc"
 )
 
 # set fortran module directory
@@ -37,6 +36,7 @@ target_link_libraries(
 if (CMAKE_DL_LIBS)
   target_link_libraries(Fortran_UDUNITS2 ${CMAKE_DL_LIBS})
 endif ()
+target_include_directories(Fortran_UDUNITS2 PRIVATE ${CMAKE_CURRENT_LIST_DIR}/source)
 
 # Install the library
 install(
